@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spots</title>
+    <title>Interactive Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         #map {
@@ -12,7 +12,8 @@
             width: 100%;
         }
 
-        #locate-button {
+        #locate-button,
+        #reset-button {
             position: absolute;
             top: 10px;
             left: 10px;
@@ -21,12 +22,28 @@
             padding: 10px;
             border: none;
             cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #reset-button {
+            left: auto;
+            right: 10px;
+        }
+
+        #loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1000;
+            display: none;
         }
     </style>
 </head>
 
 <body>
     <button id="locate-button">Locate Me</button>
+    <button id="reset-button">Reset View</button>
+    <div id="loading-spinner">Loading...</div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
